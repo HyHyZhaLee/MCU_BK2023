@@ -1,0 +1,13 @@
+/*
+ * software_timer.c
+ *
+ *  Created on: Sep 7, 2023
+ *      Author: Admin
+ */
+#include "software_timer.h"
+
+
+void set_timer(int duratation){
+	
+}
+
