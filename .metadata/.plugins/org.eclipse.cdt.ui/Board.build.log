@@ -1,0 +1,21 @@
+13:39:44 **** Incremental Build of configuration Debug for project Board ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/blinky_led.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/blinky_led.d" -MT"Core/Src/blinky_led.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/blinky_led.o"
+../Core/Src/blinky_led.c: In function 'fsm_blinky':
+../Core/Src/blinky_led.c:19:22: warning: implicit declaration of function 'isButton1Pressed' [-Wimplicit-function-declaration]
+   19 |    if(timer_flag[0]||isButton1Pressed()){
+      |                      ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Board.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Documents\Github\MCU_BK2023\Board\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Board.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Board.elf
+ 
+arm-none-eabi-size   Board.elf 
+arm-none-eabi-objdump -h -S  Board.elf  > "Board.list"
+   text	   data	    bss	    dec	    hex	filename
+   7592	     44	   1668	   9304	   2458	Board.elf
+Finished building: default.size.stdout
+ 
+Finished building: Board.list
+ 
+
+13:39:45 Build Finished. 0 errors, 1 warnings. (took 964ms)
+

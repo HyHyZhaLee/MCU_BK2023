@@ -1,0 +1,37 @@
+/*
+ * blinky_led.c
+ *
+ *  Created on: Oct 5, 2023
+ *      Author: Admin
+ */
+#include "blinky_led.h"
+void fsm_blinky(){
+	switch(led_status){
+		case INIT:
+			led_status = LED_ON;
+			setTimer(3000, 0);
+			break;
+
+		case LED_ON:
+			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, 1);
+			HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, 1);
+//			HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, 0);
+			if(timer_flag[0]||isButton1Pressed()){
+				setTimer(2000, 0);
+				led_status = LED_OFF;
+			}
+			break;
+		case LED_OFF:
+//			HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, 1);
+			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, 0);
+			HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, 0);
+
+			if(timer_flag[0]||isButton1Pressed()){
+				setTimer(3000, 0);
+				led_status = LED_ON;
+			}
+			break;
+		default:
+			break;
+	}
+}

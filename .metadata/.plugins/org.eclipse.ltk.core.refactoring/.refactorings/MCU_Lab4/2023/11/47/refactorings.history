@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MCU_Lab4/Core/Src/command_parser.c&apos; to &apos;command_parser_fsm.c&apos;" description="Rename resource &apos;command_parser.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/command_parser.c" name="command_parser_fsm.c" stamp="1700411248117" updateReferences="true"/>
+</session>
